@@ -1,0 +1,124 @@
+/* base.css */
+/* ===== BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    cursor: none; /* Hide default cursor */
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-grad-2);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-color);
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--main-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+.cursor-outline {
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(--main-color);
+    background-color: rgba(2, 132, 199, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Interactive cursor states */
+body.hovering .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(2, 132, 199, 0.2);
+}
+body.hovering .cursor-dot {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* ===== BACKGROUND BLOBS ===== */
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+.blob-1 {
+    width: 500px;
+    height: 500px;
+    background: #7dd3fc;
+    top: -100px;
+    left: -100px;
+}
+.blob-2 {
+    width: 600px;
+    height: 600px;
+    background: #bae6fd;
+    bottom: -200px;
+    right: -100px;
+    animation-delay: -5s;
+}
+.blob-3 {
+    width: 400px;
+    height: 400px;
+    background: #e0eaee;
+    top: 40%;
+    left: 40%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -50px) scale(1.1); }
+    66% { transform: translate(-30px, 30px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}

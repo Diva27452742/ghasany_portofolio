@@ -1,0 +1,109 @@
+/* layout.css */
+/* ===== HEADER STYLES ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: 0.4s;
+}
+
+.header.sticky {
+    padding: 1.5rem 9%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 2.8rem;
+    color: var(--text-color);
+    font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.logo span {
+    color: var(--main-color);
+    text-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
+}
+
+.navbar a {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 4rem;
+    transition: 0.3s;
+    position: relative;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--main-color);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3rem 9%;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.footer-text p {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: var(--main-color);
+    border-radius: 1rem;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1.5rem var(--main-color);
+    transform: translateY(-5px);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: white;
+}
